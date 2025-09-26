@@ -280,7 +280,11 @@ const Footer = () => {
               <p className="font-medium">Payment Support:</p>
               <div className="flex flex-wrap items-center gap-6">
                 {PaymentMethodData?.map((item, key) => (
-                  <a href="#" aria-label="payment system with visa card">
+                  <a
+                    href="#"
+                    aria-label="payment system with visa card"
+                    key={item.id}
+                  >
                     <Image
                       src={item.img}
                       alt="visa card"
