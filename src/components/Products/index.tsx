@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
-import CategoryDropdown from "../Products/CategoryDropdown";
 import productData from "../../data/product_data";
 import categoryData from "@/data/category_data";
 import ProductToolbar from "../Products/ProductToolbar";
 import ProductItem from "../Products/ProductItem";
+import CategoryDropdown from "./CategoryDropdown";
 
-const ShopPage = () => {
+const ProductList = () => {
   const [productStyle, setProductStyle] = useState("grid");
   const [productSidebar, setProductSidebar] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
@@ -49,7 +49,7 @@ const ShopPage = () => {
     <>
       <Breadcrumb
         title={"Explore All Products"}
-        pages={["shop", "/", "shop with sidebar"]}
+        pages={["products", "/", "explore"]}
       />
       <section className="overflow-hidden relative pb-20 pt-5 lg:pt-20 xl:pt-28 bg-[#f3f4f6]">
         <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
@@ -137,4 +137,4 @@ const ShopPage = () => {
   );
 };
 
-export default ShopPage;
+export default ProductList;

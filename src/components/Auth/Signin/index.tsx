@@ -1,8 +1,14 @@
+"use client";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { showDevAlert } from "@/utils/alert";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import Swal from "sweetalert2";
 
 const Signin = () => {
+  useEffect(() => {
+    showDevAlert();
+  });
   return (
     <>
       <Breadcrumb title={"Signin"} pages={["Signin"]} />

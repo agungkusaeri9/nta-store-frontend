@@ -1,7 +1,16 @@
+"use client";
 import React from "react";
 import Breadcrumb from "../Common/Breadcrumb";
+import configData from "@/data/config_data";
+import toast from "react-hot-toast";
 
 const Contact = () => {
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log("object");
+    toast.error("This feature is not available yet");
+  };
+
   return (
     <>
       <Breadcrumb title={"Contact"} pages={["contact"]} />
@@ -33,7 +42,7 @@ const Contact = () => {
                         fill="#3C50E0"
                       />
                     </svg>
-                    Name: James Septimus
+                    Email: {configData?.email}
                   </p>
 
                   <p className="flex items-center gap-4">
@@ -61,7 +70,7 @@ const Contact = () => {
                         fill="#3C50E0"
                       />
                     </svg>
-                    Phone: 1234 567890
+                    Phone: {configData?.phone_number}
                   </p>
 
                   <p className="flex gap-4">
@@ -80,14 +89,14 @@ const Contact = () => {
                         fill="#3C50E0"
                       />
                     </svg>
-                    Address: 7398 Smoke Ranch RoadLas Vegas, Nevada 89128
+                    Address: {configData?.address}
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="xl:max-w-[770px] w-full bg-white rounded-xl shadow-1 p-4 sm:p-7.5 xl:p-10">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="flex flex-col lg:flex-row gap-5 sm:gap-8 mb-5">
                   <div className="w-full">
                     <label htmlFor="firstName" className="block mb-2.5">

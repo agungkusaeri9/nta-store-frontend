@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Breadcrumb from "../Common/Breadcrumb";
 import Login from "./Login";
 import Shipping from "./Shipping";
@@ -7,8 +7,19 @@ import ShippingMethod from "./ShippingMethod";
 import PaymentMethod from "./PaymentMethod";
 import Coupon from "./Coupon";
 import Billing from "./Billing";
+import { useAppSelector } from "@/redux/store";
+import { useSelector } from "react-redux";
+import { selectTotalPrice } from "@/redux/features/cart-slice";
+import formatRupiah from "@/utils/currencyFormat";
 
 const Checkout = () => {
+  const cartItems = useAppSelector((state) => state.cartReducer);
+  const totalPrice = useSelector(selectTotalPrice);
+  useEffect(() => {
+    // if (cartItems.items.length === 0) {
+    //   window.location.href = "/";
+    // }
+  });
   return (
     <>
       <Breadcrumb title={"Checkout"} pages={["checkout"]} />
@@ -68,45 +79,32 @@ const Checkout = () => {
                       </div>
                     </div>
 
-                    {/* <!-- product item --> */}
-                    <div className="flex items-center justify-between py-5 border-b border-gray-3">
-                      <div>
-                        <p className="text-dark">iPhone 14 Plus , 6/128GB</p>
-                      </div>
-                      <div>
-                        <p className="text-dark text-right">$899.00</p>
-                      </div>
-                    </div>
+                    {cartItems.items.length > 0 &&
+                      cartItems.items.map((item, key) => (
+                        <div
+                          key={item.id || key}
+                          className="flex items-center justify-between py-5 border-b border-gray-3"
+                        >
+                          <div>
+                            <p className="text-dark">{item.title}</p>
+                          </div>
+                          <div>
+                            <p className="text-dark text-right">
+                              {formatRupiah(item.price)}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
 
                     {/* <!-- product item --> */}
-                    <div className="flex items-center justify-between py-5 border-b border-gray-3">
-                      <div>
-                        <p className="text-dark">Asus RT Dual Band Router</p>
-                      </div>
-                      <div>
-                        <p className="text-dark text-right">$129.00</p>
-                      </div>
-                    </div>
-
-                    {/* <!-- product item --> */}
-                    <div className="flex items-center justify-between py-5 border-b border-gray-3">
-                      <div>
-                        <p className="text-dark">Havit HV-G69 USB Gamepad</p>
-                      </div>
-                      <div>
-                        <p className="text-dark text-right">$29.00</p>
-                      </div>
-                    </div>
-
-                    {/* <!-- product item --> */}
-                    <div className="flex items-center justify-between py-5 border-b border-gray-3">
+                    {/* <div className="flex items-center justify-between py-5 border-b border-gray-3">
                       <div>
                         <p className="text-dark">Shipping Fee</p>
                       </div>
                       <div>
-                        <p className="text-dark text-right">$15.00</p>
+                        <p className="text-dark text-right"></p>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* <!-- total --> */}
                     <div className="flex items-center justify-between pt-5">
@@ -115,7 +113,7 @@ const Checkout = () => {
                       </div>
                       <div>
                         <p className="font-medium text-lg text-dark text-right">
-                          $1072.00
+                          {formatRupiah(totalPrice)}
                         </p>
                       </div>
                     </div>
@@ -123,7 +121,7 @@ const Checkout = () => {
                 </div>
 
                 {/* <!-- coupon box --> */}
-                <Coupon />
+                {/* <Coupon /> */}
 
                 {/* <!-- shipping box --> */}
                 <ShippingMethod />

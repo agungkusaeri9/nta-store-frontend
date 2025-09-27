@@ -1,10 +1,10 @@
 import { Config } from "@/types/config";
 
 const configData: Config = {
-  env: process.env.NEXT_PUBLIC_ENV,
-  address: process.env.NEXT_PUBLIC_ADDRESS,
-  phone_number: process.env.NEXT_PUBLIC_PHONE_NUMBER,
-  email: process.env.NEXT_PUBLIC_EMAIL,
+  env: "Development",
+  address: "Karawang, Jawa Barat",
+  phone_number: "628 1915 9562 72",
+  email: "mybussines@mail.com",
 };
 
 export default configData;

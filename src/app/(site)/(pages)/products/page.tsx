@@ -1,19 +1,19 @@
 import React from "react";
-import ShopWithSidebar from "@/components/ShopWithSidebar";
 
 import { Metadata } from "next";
+import ProductList from "@/components/Products";
 export const metadata: Metadata = {
   title: "Shop Page | NextCommerce Nextjs E-commerce template",
   description: "This is Shop Page for NextCommerce Template",
   // other metadata
 };
 
-const ShopWithSidebarPage = () => {
+const ProduuctPageList = () => {
   return (
     <main>
-      <ShopWithSidebar />
+      <ProductList />
     </main>
   );
 };
 
-export default ShopWithSidebarPage;
+export default ProduuctPageList;

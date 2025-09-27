@@ -10,6 +10,7 @@ import { AppDispatch } from "@/redux/store";
 import Link from "next/link";
 import Image from "next/image";
 import formatRupiah from "@/utils/currencyFormat";
+import toast from "react-hot-toast";
 
 const ProductItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -23,6 +24,7 @@ const ProductItem = ({ item }: { item: Product }) => {
 
   // add to cart
   const handleAddToCart = () => {
+    toast.success("Item added to cart");
     dispatch(
       addItemToCart({
         ...item,

@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import PaymentMethodData from "@/data/payment_method_data";
 import configData from "@/data/config_data";
+import Link from "next/link";
+import { showDevAlert } from "@/utils/alert";
 const Footer = () => {
   const year = new Date().getFullYear();
 
@@ -204,29 +206,38 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-3.5">
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  href={"#"}
+                  onClick={() => showDevAlert({ isRedirect: false })}
+                  className="ease-out duration-200 hover:text-blue"
+                >
                   My Account
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  className="ease-out duration-200 hover:text-blue"
+                  href="/signin"
+                >
                   Login / Register
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  className="ease-out duration-200 hover:text-blue"
+                  href="/cart"
+                >
                   Cart
-                </a>
+                </Link>
               </li>
+
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
-                  Wishlist
-                </a>
-              </li>
-              <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
-                  Shop
-                </a>
+                <Link
+                  className="ease-out duration-200 hover:text-blue"
+                  href="/products"
+                >
+                  Product
+                </Link>
               </li>
             </ul>
           </div>
@@ -238,29 +249,48 @@ const Footer = () => {
 
             <ul className="flex flex-col gap-3">
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  href={"#"}
+                  onClick={() => showDevAlert({ isRedirect: false })}
+                  className="ease-out duration-200 hover:text-blue"
+                >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  href={"#"}
+                  onClick={() => showDevAlert({ isRedirect: false })}
+                  className="ease-out duration-200 hover:text-blue"
+                >
                   Refund Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  className="ease-out duration-200 hover:text-blue"
+                  href={"#"}
+                  onClick={() => showDevAlert({ isRedirect: false })}
+                >
                   Terms of Use
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  className="ease-out duration-200 hover:text-blue"
+                  href={"#"}
+                  onClick={() => showDevAlert({ isRedirect: false })}
+                >
                   FAQ’s
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ease-out duration-200 hover:text-blue" href="#">
+                <Link
+                  className="ease-out duration-200 hover:text-blue"
+                  href={"/contact"}
+                >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
