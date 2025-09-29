@@ -1,6 +1,9 @@
 import React from "react";
 
-const Billing = () => {
+const Billing = ({ form, setForm }: { form: any; setForm: any }) => {
+  const handleChange = (e: any) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
   return (
     <div className="mt-9">
       <h2 className="font-medium text-dark text-xl sm:text-2xl mb-5.5">
@@ -11,12 +14,13 @@ const Billing = () => {
         <div className="flex flex-col lg:flex-row gap-5 sm:gap-8 mb-5">
           <div className="w-full">
             <label htmlFor="firstName" className="block mb-2.5">
-              First Name <span className="text-red">*</span>
+              Nama Depan <span className="text-red">*</span>
             </label>
 
             <input
+              onChange={handleChange}
               type="text"
-              name="firstName"
+              name="first_name"
               id="firstName"
               placeholder="Jhon"
               className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
@@ -25,12 +29,13 @@ const Billing = () => {
 
           <div className="w-full">
             <label htmlFor="lastName" className="block mb-2.5">
-              Last Name <span className="text-red">*</span>
+              Nama Belakang <span className="text-red">*</span>
             </label>
 
             <input
+              onChange={handleChange}
               type="text"
-              name="lastName"
+              name="last_name"
               id="lastName"
               placeholder="Deo"
               className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
@@ -38,7 +43,7 @@ const Billing = () => {
           </div>
         </div>
 
-        <div className="mb-5">
+        {/* <div className="mb-5">
           <label htmlFor="companyName" className="block mb-2.5">
             Company Name
           </label>
@@ -49,9 +54,9 @@ const Billing = () => {
             id="companyName"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
-        </div>
+        </div> */}
 
-        <div className="mb-5">
+        {/* <div className="mb-5">
           <label htmlFor="countryName" className="block mb-2.5">
             Country/ Region
             <span className="text-red">*</span>
@@ -82,34 +87,35 @@ const Billing = () => {
               </svg>
             </span>
           </div>
-        </div>
+        </div> */}
 
         <div className="mb-5">
           <label htmlFor="address" className="block mb-2.5">
-            Street Address
+            Alamat
             <span className="text-red">*</span>
           </label>
 
-          <input
+          {/* <input
             type="text"
             name="address"
             id="address"
             placeholder="House number and street name"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-          />
+          /> */}
 
           <div className="mt-5">
-            <input
-              type="text"
+            <textarea
+              onChange={handleChange}
               name="address"
-              id="addressTwo"
-              placeholder="Apartment, suite, unit, etc. (optional)"
-              className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
-            />
+              id="address"
+              rows={5}
+              placeholder="Alamat lengkap..."
+              className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full p-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
+            ></textarea>
           </div>
         </div>
 
-        <div className="mb-5">
+        {/* <div className="mb-5">
           <label htmlFor="town" className="block mb-2.5">
             Town/ City <span className="text-red">*</span>
           </label>
@@ -120,9 +126,9 @@ const Billing = () => {
             id="town"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
-        </div>
+        </div> */}
 
-        <div className="mb-5">
+        {/* <div className="mb-5">
           <label htmlFor="country" className="block mb-2.5">
             Country
           </label>
@@ -133,9 +139,9 @@ const Billing = () => {
             id="country"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
-        </div>
+        </div> */}
 
-        <div className="mb-5">
+        {/* <div className="mb-5">
           <label htmlFor="phone" className="block mb-2.5">
             Phone <span className="text-red">*</span>
           </label>
@@ -146,9 +152,9 @@ const Billing = () => {
             id="phone"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
-        </div>
+        </div> */}
 
-        <div className="mb-5.5">
+        {/* <div className="mb-5.5">
           <label htmlFor="email" className="block mb-2.5">
             Email Address <span className="text-red">*</span>
           </label>
@@ -159,9 +165,9 @@ const Billing = () => {
             id="email"
             className="rounded-md border border-gray-3 bg-gray-1 placeholder:text-dark-5 w-full py-2.5 px-5 outline-none duration-200 focus:border-transparent focus:shadow-input focus:ring-2 focus:ring-blue/20"
           />
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <label
             htmlFor="checkboxLabelTwo"
             className="text-dark flex cursor-pointer select-none items-center"
@@ -201,7 +207,7 @@ const Billing = () => {
             </div>
             Create an Account
           </label>
-        </div>
+        </div> */}
       </div>
     </div>
   );

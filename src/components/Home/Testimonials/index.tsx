@@ -1,13 +1,13 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useCallback, useRef } from "react";
-import testimonialsData from "./testimonialsData";
 import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css/navigation";
 import "swiper/css";
 import SingleItem from "./SingleItem";
+import testimonialsData from "@/data/testimonial_data";
 
 const Testimonials = () => {
   const sliderRef = useRef(null);

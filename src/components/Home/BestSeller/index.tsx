@@ -2,7 +2,7 @@ import React from "react";
 import SingleItem from "./SingleItem";
 import Image from "next/image";
 import Link from "next/link";
-import productData from "@/data/product_data";
+import productBestSellerData from "@/data/product_best_seller";
 
 const BestSeller = () => {
   return (
@@ -28,14 +28,14 @@ const BestSeller = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7.5">
           {/* <!-- Best Sellers item --> */}
-          {productData.slice(1, 7).map((item, key) => (
+          {productBestSellerData.slice(1, 7).map((item, key) => (
             <SingleItem item={item} key={key} />
           ))}
         </div>
 
         <div className="text-center mt-12.5">
           <Link
-            href="/shop-without-sidebar"
+            href="/products?type=best-seller"
             className="inline-flex font-medium text-custom-sm py-3 px-7 sm:px-12.5 rounded-md border-gray-3 border bg-gray-1 text-dark ease-out duration-200 hover:bg-dark hover:text-white hover:border-transparent"
           >
             View All
