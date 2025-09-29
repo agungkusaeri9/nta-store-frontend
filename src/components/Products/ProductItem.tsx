@@ -24,7 +24,6 @@ const ProductItem = ({ item }: { item: Product }) => {
 
   // add to cart
   const handleAddToCart = () => {
-    toast.success("Item added to cart");
     dispatch(
       addItemToCart({
         ...item,

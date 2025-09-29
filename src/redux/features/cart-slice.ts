@@ -1,5 +1,6 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import toast from "react-hot-toast";
 
 type InitialState = {
   items: CartItem[];
@@ -26,6 +27,7 @@ export const cart = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, action: PayloadAction<CartItem>) => {
+      toast.success("Item added to cart");
       const { id, title, price, quantity, discountedPrice, imgs } =
         action.payload;
       const existingItem = state.items.find((item) => item.id === id);

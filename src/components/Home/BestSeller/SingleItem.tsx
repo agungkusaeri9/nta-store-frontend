@@ -9,6 +9,8 @@ import { addItemToCart } from "@/redux/features/cart-slice";
 import Image from "next/image";
 import Link from "next/link";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
+import toast from "react-hot-toast";
+import formatRupiah from "@/utils/currencyFormat";
 
 const SingleItem = ({ item }: { item: Product }) => {
   const { openModal } = useModalContext();
@@ -85,8 +87,8 @@ const SingleItem = ({ item }: { item: Product }) => {
           </h3>
 
           <span className="flex items-center justify-center gap-2 font-medium text-lg">
-            <span className="text-dark">${item.discountedPrice}</span>
-            <span className="text-dark-4 line-through">${item.price}</span>
+            <span className="text-dark">{formatRupiah(item.discountedPrice)}</span>
+            <span className="text-dark-4 line-through">{formatRupiah(item.price)}</span>
           </span>
         </div>
 

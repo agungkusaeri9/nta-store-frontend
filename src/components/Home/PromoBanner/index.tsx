@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import promoBannerData from "@/data/promo_banner_data";
+import Link from "next/link";
 
 export default function PromoBanner() {
   const big = promoBannerData.find((p) => p.variant === "big");
@@ -97,7 +98,7 @@ export default function PromoBanner() {
                   </p>
                 )}
 
-                <a
+                <Link
                   href={item.ctaUrl}
                   aria-label={item.ctaText}
                   className={`inline-flex font-medium text-custom-sm text-white py-2.5 px-8.5 rounded-md ease-out duration-200 mt-9 ${item.variant === "small-left"
@@ -106,7 +107,7 @@ export default function PromoBanner() {
                     }`}
                 >
                   {item.ctaText}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
